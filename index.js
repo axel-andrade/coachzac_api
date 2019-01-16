@@ -4,7 +4,7 @@ var compression = require('compression');
 var Server = require('parse-server').ParseServer;
 var Dashboard = require('parse-dashboard');
 var port = process.env.PORT || conf.port;
-var server = process.env.SERVER_URL || 'https://coachzac-api.herokuapp.com/use';
+var server = process.env.SERVER_URL || conf.server;
 const MASTERKEY = process.env.MASTER_KEY || conf.masterKey;
 
 var api = new Server({

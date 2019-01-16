@@ -1,11 +1,12 @@
 {
-  "appName": "",
-  "appId": "",
-  "port": 1982,
-  "server": "",
-  "databaseUri": "",
+  "appName": "coachzac",
+  "appId": "coachzacId",
+  "port": "",
+  "masterKey" : "coachzacMasterKey",
+  "server": "https://coachzac-api.herokuapp.com/use",
+  "databaseUri": "mongodb://heroku_jcxggmp0:3t81tnda0puvivikie1vdv31l8@ds159164.mlab.com:59164/heroku_jcxggmp0",
   "FacebookID": [
-    ""
+    "ID do APLICATIVO: 232490081005442"
   ],
   "linkPage": "",
   "docs": ""
