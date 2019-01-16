@@ -4,7 +4,7 @@ var compression = require('compression');
 var Server = require('parse-server').ParseServer;
 var Dashboard = require('parse-dashboard');
 var port = process.env.PORT || conf.port;
-var server = process.env.SERVER_URL || conf.server;
+var server = process.env.SERVER_URL || 'https://coachzac-api.herokuapp.com/use';
 const MASTERKEY = process.env.MASTER_KEY || conf.masterKey;
 
 var api = new Server({
@@ -39,15 +39,15 @@ var dashboard = new Dashboard({
     "apps": [
         {
             "serverURL": server,
-            "appId": conf.appId,
+            "appId": process.env.APP_ID || conf.appId,
             "masterKey": MASTERKEY,
-            "appName": conf.appName,
+            "appName": process.env.APP_NAME || conf.appName,
             "iconName": "icon.png"
         }],
     "users": [
         {
-            "user": conf.appName,
-            "pass": conf.appName + ".0)dash"
+            "user": process.env.APP_NAME,
+            "pass": process.env.APP_NAME + ".0)dash"
         }
     ],
     // "iconsFolder": "appicons",
