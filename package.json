@@ -1,0 +1,37 @@
+{
+  "name": "helpy-backend",
+  "version": "1.0.0",
+  "description": "helpy-backend",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "http://git.usemobile.com.br/Helpy/helpy-backend.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.6.2",
+    "config": "^1.30.0",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "kerberos": "~0.0.x",
+    "mailgun-js": "^0.22.0",
+    "parse": "~1.8.0",
+    "parse-dashboard": "^1.1.0",
+    "parse-server": "2.7.2",
+    "parse-server-simple-mailgun-adapter": "^1.0.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=4.3"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "frisby": "^0.8.5",
+    "jasmine-node": "^1.14.5"
+  },
+  "author": "Patrick Brunoro"
+}

@@ -1,0 +1,13 @@
+{
+  "appName": "CoachZac",
+  "appId": "CoachZacId",
+  "port": 1982,
+  "masterKey": "myMasterKey",
+  "server": "http://localhost:1982/use",
+  "databaseUri": "mongodb://localhost:27017/CoachZac",
+  "FacebookID": [
+    ""
+  ],
+  "linkPage": "",
+  "docs": ""
+}

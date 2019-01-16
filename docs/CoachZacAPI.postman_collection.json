@@ -1,0 +1,1592 @@
+{
+	"info": {
+		"_postman_id": "d58ed6a9-4e47-4e6e-964a-733062f8e622",
+		"name": "CoachZacAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "logIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "178f3db0-784b-4ba7-a4ea-8f668b2e7ac8",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"sessionToken\", jsonData.result.sessionToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"login\":  \"ajaxeljunio@gmail.com\",\n\t\"password\": \"123456\"\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}logIn",
+							"host": [
+								"{{URL}}logIn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signUp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "55466811-372c-465a-8a14-30e8277cb1e5",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"sessionToken\", jsonData.result.sessionToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"name\": \"Axel\",\n\t\"email\":  \"ajaxeljcunio@gmail.com\",\n\t\"password\": \"123456\",\n\t\"team\": \"Minas Tênis Clube\",\n\t\"dateOfBirth\": \"1987-02-13\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}signUp",
+							"host": [
+								"{{URL}}signUp"
+							]
+						},
+						"description": "Cadastrar treinador"
+					},
+					"response": []
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"userId\": \"wi1inx9eMN\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getUserById",
+							"host": [
+								"{{URL}}getUserById"
+							]
+						},
+						"description": "Retorna dados de um determinado usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "recoverPassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"email\":  \"ajaxeljunio@gmail.com\"\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}recoverPassword",
+							"host": [
+								"{{URL}}recoverPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Player",
+			"item": [
+				{
+					"name": "createPlayer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84e67f90-40da-4436-b849-db09327eb8ed",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"playerId\", jsonData.result.objectId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"_ApplicationId\":\"{{appId}}\",\r\n\t\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\t\"name\": \"Teste 2\",\r\n\t\t\"email\": \"geralaadaasssaaaaa@gmail.com\",\r\n\t\t\"dateOfBirth\": \"1991-17-05\",\r\n\t\t\"weight\": \"51.4\",\r\n\t\t\"height\": \"1.72\",\r\n\t\t\"adress\": \"Avenida do Carmo, 19\",\r\n\t\t\"phone\": \"(31) 98762-9826\",\r\n\t\t\"genre\":  \"female\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}createPlayer",
+							"host": [
+								"{{URL}}createPlayer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editPlayer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"_ApplicationId\":\"{{appId}}\",\r\n\t\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\t\"playerId\": \"w1fZcRwX6G\",\r\n\t\t\"name\": \"Patrick\",\r\n\t\t\"email\": \"patrick2@gmail.com\",\r\n\t\t\"dateOfBirth\": \"1991-17-05\",\r\n\t\t\"weight\": \"90.4\",\r\n\t\t\"height\": \"1.98\",\r\n\t\t\"adress\": \"Rua 25\",\r\n\t\t\"phone\": \"(31) 91902-9826\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}editPlayer",
+							"host": [
+								"{{URL}}editPlayer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePlayer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\":  \"{{playerId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}deletePlayer",
+							"host": [
+								"{{URL}}deletePlayer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPlayerById",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\":  \"{{playerId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getPlayerById",
+							"host": [
+								"{{URL}}getPlayerById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPlayers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getPlayers",
+							"host": [
+								"{{URL}}getPlayers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPlayersByName",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"nameSearch\": \"x\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getPlayersByName",
+							"host": [
+								"{{URL}}getPlayersByName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPlayersForAnalyze",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getPlayersForAnalyze",
+							"host": [
+								"{{URL}}getPlayersForAnalyze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPlayersForAnalyzeByName",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"nameSearch\":  \"x\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getPlayersForAnalyzeByName",
+							"host": [
+								"{{URL}}getPlayersForAnalyzeByName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPlayersByAlphabeticalOrder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getPlayersByAlphabeticalOrder",
+							"host": [
+								"{{URL}}getPlayersByAlphabeticalOrder"
+							]
+						},
+						"description": "Retorna os atletas em ordem alfabetica"
+					},
+					"response": []
+				},
+				{
+					"name": "makeFavorite",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\":  \"iUUdH2ZkmQ\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}makeFavorite",
+							"host": [
+								"{{URL}}makeFavorite"
+							]
+						},
+						"description": "Adicionar um atleta na lista de atletas favoritos"
+					},
+					"response": []
+				},
+				{
+					"name": "unmakeFavorite",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\":  \"Gb7MMPLVM0\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}unmakeFavorite",
+							"host": [
+								"{{URL}}unmakeFavorite"
+							]
+						},
+						"description": "Retirar atleta da lista de favoritos "
+					},
+					"response": []
+				},
+				{
+					"name": "getFavoritePlayers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getFavoritePlayers",
+							"host": [
+								"{{URL}}getFavoritePlayers"
+							]
+						},
+						"description": "Retorna os atletas da lista de favoritos do treinador"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Analyze",
+			"item": [
+				{
+					"name": "createAnalyze",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "81cc062d-3072-4913-92d3-bb8cef6f7202",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"analyzeId\", jsonData.result.objectId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\": \"{{playerId}}\",\n\t\"points\": [10,10,10,10,10,10,10,10]\n}"
+						},
+						"url": {
+							"raw": "{{URL}}createAnalyze",
+							"host": [
+								"{{URL}}createAnalyze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editAnalyze",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"analyzeId\": \"{{analyzeId}}\",\n\t\"playerId\": \"{{playerId}}\",\n\t\"points\": [10,10,10,10,10,10,10,10]\n}"
+						},
+						"url": {
+							"raw": "{{URL}}editAnalyze",
+							"host": [
+								"{{URL}}editAnalyze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAnalyzeById",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"analyzeId\": \"HVw7N2DYCu\"\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getAnalyzeById",
+							"host": [
+								"{{URL}}getAnalyzeById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAnalyze",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"analyzeId\": \"{{analyzeId}}\"\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}deleteAnalyze",
+							"host": [
+								"{{URL}}deleteAnalyze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAnalyzesByPlayer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\": \"fO7af46RBb\"\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getAnalyzesByPlayer",
+							"host": [
+								"{{URL}}getAnalyzesByPlayer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAnalyzeByMonthAndYear",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"month\": 1,\n\t\"year\": 2019\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getAnalyzesByMonthAndYear",
+							"host": [
+								"{{URL}}getAnalyzesByMonthAndYear"
+							]
+						},
+						"description": "Pegar avaliações feitas em determinado mês."
+					},
+					"response": []
+				},
+				{
+					"name": "getAnalyzesByYear",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"year\": 2019\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getAnalyzesByYear",
+							"host": [
+								"{{URL}}getAnalyzesByYear"
+							]
+						},
+						"description": "Pegando avaliações de um determinado ano."
+					},
+					"response": []
+				},
+				{
+					"name": "getAnalyzesByDate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"date\": \"2019-01-11\"\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getAnalyzesByDate",
+							"host": [
+								"{{URL}}getAnalyzesByDate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAnalyzesMostRecents",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getAnalyzesMostRecent",
+							"host": [
+								"{{URL}}getAnalyzesMostRecent"
+							]
+						},
+						"description": "Retornar as avaliações mais recentes."
+					},
+					"response": []
+				},
+				{
+					"name": "getStatisticPlayerByYear",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\": \"{{playerId}}\",\n\t\"year\": 2019\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getStatisticPlayerByYear",
+							"host": [
+								"{{URL}}getStatisticPlayerByYear"
+							]
+						},
+						"description": "Gerando estatísticas nas avaliações feitas por um atleta em um determinado ano."
+					},
+					"response": []
+				},
+				{
+					"name": "getStatisticPlayerByMonthAndYear",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\": \"{{playerId}}\",\n\t\"year\": 2019,\n\t\"month\": 1\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getStatisticPlayerByMonthAndYear",
+							"host": [
+								"{{URL}}getStatisticPlayerByMonthAndYear"
+							]
+						},
+						"description": "Retorna estatisticas do jogador em determinado mês e ano."
+					},
+					"response": []
+				},
+				{
+					"name": "getStatisticPlayerMostRecents",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\": \"{{playerId}}\"\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getStatisticPlayerMostRecents",
+							"host": [
+								"{{URL}}getStatisticPlayerMostRecents"
+							]
+						},
+						"description": "Retorna estatisticas do jogador em relação as 3 últimas avalições."
+					},
+					"response": []
+				},
+				{
+					"name": "getAnalyzesBetweenDates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"begin\": \"2019-02-12\",\n\t\"end\": \"2019-01-11\"\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getAnalyzesBetweenDates",
+							"host": [
+								"{{URL}}getAnalyzesBetweenDates"
+							]
+						},
+						"description": "Retorna todas as datas que foram realizadas entre duas data."
+					},
+					"response": []
+				},
+				{
+					"name": "getStatisticPlayerBetweenDates",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\": \"{{playerId}}\",\n\t\"begin\": \"2019-01-12\",\n\t\"end\": \"2019-02-11\"\n\t\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getStatisticPlayerBetweenDates",
+							"host": [
+								"{{URL}}getStatisticPlayerBetweenDates"
+							]
+						},
+						"description": "Retorna estatísticas de um jogador entre um intervalo de dias "
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Training ",
+			"item": [
+				{
+					"name": "createTraining",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"_ApplicationId\":\"{{appId}}\",\r\n\t\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\t\"playerId\": \"{{playerId}}\",\r\n\t\t\"date\": \"2019-06-16\",\r\n\t\t\"hourBegin\": \"19:00:00\",\r\n\t\t\"hourEnd\": \"20:00:00\",\r\n\t\t\"comment\": \"Foco no levatamento da bola\",\r\n\t\t\"serveNumbers\": 4\r\n\t}\r\n"
+						},
+						"url": {
+							"raw": "{{URL}}createTraining",
+							"host": [
+								"{{URL}}createTraining"
+							]
+						},
+						"description": "Criar Treino"
+					},
+					"response": []
+				},
+				{
+					"name": "editTraining",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"_ApplicationId\":\"{{appId}}\",\r\n\t\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\t\"trainingId\": \"b8KEBgWJYw\",\r\n\t\t\"playerId\": \"fO7af46RBb\",\r\n\t\t\"date\": \"2019-01-31\",\r\n\t\t\"hourBegin\": \"15:00:00\",\r\n\t\t\"hourEnd\": \"16:00:00\",\r\n\t\t\"comment\": \"Foco no levatamento da bola\",\r\n\t\t\"serveNumbers\": 4\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{URL}}editTraining",
+							"host": [
+								"{{URL}}editTraining"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTrainingById",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"_ApplicationId\":\"{{appId}}\",\r\n\t\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\t\"trainingId\": \"UloKCArKq9\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getTrainingById",
+							"host": [
+								"{{URL}}getTrainingById"
+							]
+						},
+						"description": "Retorna treino com base no Id do mesmo"
+					},
+					"response": []
+				},
+				{
+					"name": "getTrainings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"_ApplicationId\":\"{{appId}}\",\n\t\t\"_SessionToken\": \"{{sessionToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getTrainings",
+							"host": [
+								"{{URL}}getTrainings"
+							]
+						},
+						"description": "Retorna lista de treinos com limite de 100 treinos"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTraining",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"_ApplicationId\":\"{{appId}}\",\r\n\t\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\t\"trainingId\": \"2g0P0yIoiosjw02r\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}deleteTraining",
+							"host": [
+								"{{URL}}deleteTraining"
+							]
+						},
+						"description": "Deletar determinado treino."
+					},
+					"response": []
+				},
+				{
+					"name": "getTrainingsByPlayer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"_ApplicationId\":\"{{appId}}\",\r\n\t\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\t\"playerId\": \"fO7afmm46RBb\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getTrainingsByPlayer",
+							"host": [
+								"{{URL}}getTrainingsByPlayer"
+							]
+						},
+						"description": "Retorna todos treinos de um atleta"
+					},
+					"response": []
+				},
+				{
+					"name": "getTrainingsPerfomed",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"_ApplicationId\":\"{{appId}}\",\r\n\t\"_SessionToken\": \"{{sessionToken}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getTrainingsPerfomed",
+							"host": [
+								"{{URL}}getTrainingsPerfomed"
+							]
+						},
+						"description": "Retorna treinos que já foram realizados"
+					},
+					"response": []
+				},
+				{
+					"name": "getTrainingsNotPerfomed",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"_ApplicationId\":\"{{appId}}\",\r\n\t\"_SessionToken\": \"{{sessionToken}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getTrainingsNotPerfomed",
+							"host": [
+								"{{URL}}getTrainingsNotPerfomed"
+							]
+						},
+						"description": "Retorna os treinos que ainda não foram realizados"
+					},
+					"response": []
+				},
+				{
+					"name": "getTrainingsPerfomedByPlayer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\": \"fO7af46RBb\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getTrainingsPerfomedByPlayer",
+							"host": [
+								"{{URL}}getTrainingsPerfomedByPlayer"
+							]
+						},
+						"description": "Retorn treinos que já foram realizados por determinado atleta."
+					},
+					"response": []
+				},
+				{
+					"name": "getTrainingsNotPerfomedByPlayer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"playerId\": \"fO7af46RBb\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getTrainingsNotPerfomedByPlayer",
+							"host": [
+								"{{URL}}getTrainingsNotPerfomedByPlayer"
+							]
+						},
+						"description": "Retorna treinos que não realizados para um determinado atleta"
+					},
+					"response": []
+				},
+				{
+					"name": "makePerfomed",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"trainingId\": \"cL8uKQHL73\"\n}\n"
+						},
+						"url": {
+							"raw": "{{URL}}makePerfomed",
+							"host": [
+								"{{URL}}makePerfomed"
+							]
+						},
+						"description": "Marca treino como finalizado"
+					},
+					"response": []
+				},
+				{
+					"name": "unmakePerfomed",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":\"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"trainingId\": \"cL8uKQHL73\"\n}\n"
+						},
+						"url": {
+							"raw": "{{URL}}unmakePerfomed",
+							"host": [
+								"{{URL}}unmakePerfomed"
+							]
+						},
+						"description": "Marca treino como não finalizado"
+					},
+					"response": []
+				}
+			],
+			"description": "Classe responsável pelo agenda e notificações de treinos "
+		},
+		{
+			"name": "Fundament",
+			"item": [
+				{
+					"name": "getFundamentByCode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"code\": 2\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getFundamentByCode",
+							"host": [
+								"{{URL}}getFundamentByCode"
+							]
+						},
+						"description": "retornar nome dos fundamentos pelos códigos passado. "
+					},
+					"response": []
+				},
+				{
+					"name": "getFundaments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getFundaments",
+							"host": [
+								"{{URL}}getFundaments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFundamentsByCodes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\": \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"codes\": [1,2,7]\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getFundamentsByCodes",
+							"host": [
+								"{{URL}}getFundamentsByCodes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Classe que contém os fundamentos do saque. "
+		},
+		{
+			"name": "Club",
+			"item": [
+				{
+					"name": "cretateClub",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "00efb851-3f9d-4b3c-b798-d31a389b0723",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"clubId\", jsonData.result.objectId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n    \"_ApplicationId\":  \"{{appId}}\",\r\n\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\"name\": \"Federação Gaúcha de Tênis\",\r\n\t\"modalitys\": [\"{{tenis}}\", \"{{handebol}}\",\"{{society}}\",\"{{basquete}}\"],\r\n    \"ranking\": 6,\r\n    \"url\": \"http://www.tenisintegrado.com.br/\",\r\n    \"adress\": \"Rua Vigário José Inácio, 371 - Salas 522 e 523 - Cep 90020100 - Porto Alegre - RS\",\r\n    \"phone\": \"51 3226-5734\",\r\n    \"latitude\": -30.0289999,\r\n    \"longitude\": -51.228411,\r\n    \"logo\": \"http://atc.esp.br/wp-content/uploads/2015/01/noticia1884.jpg\"\r\n\r\n\t\r\n}\r\n\r\n\r\n\r\n"
+						},
+						"url": {
+							"raw": "{{URL}}createClub",
+							"host": [
+								"{{URL}}createClub"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getClubs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t \"_ApplicationId\":  \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getClubs",
+							"host": [
+								"{{URL}}getClubs"
+							]
+						},
+						"description": "Retorna os dados dos clubes cadastrados."
+					},
+					"response": []
+				},
+				{
+					"name": "getClubGreaterDistancePoint",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t \"_ApplicationId\":  \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"latitude\": -25.4959946,\n\t\"longitude\":  -49.4273714\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getClubGreaterDistancePoint",
+							"host": [
+								"{{URL}}getClubGreaterDistancePoint"
+							]
+						},
+						"description": "Retorna os dados dos clubes cadastrados."
+					},
+					"response": []
+				},
+				{
+					"name": "getDistancePointBestRanking",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t \"_ApplicationId\":  \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"latitude\": -27.6356188,\n\t\"longitude\":  -53.327783\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getDistancePointBestRanking",
+							"host": [
+								"{{URL}}getDistancePointBestRanking"
+							]
+						},
+						"description": "Retorna os dados dos clubes cadastrados."
+					},
+					"response": []
+				},
+				{
+					"name": "getClubsWithinRadius",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t \"_ApplicationId\":  \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"latitude\": -3.044653,\n\t\"longitude\":  -60.1071946,\n\t\"radius\": \"5000\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getClubsWithinRadius",
+							"host": [
+								"{{URL}}getClubsWithinRadius"
+							]
+						},
+						"description": "Retorna os dados dos clubes cadastrados."
+					},
+					"response": []
+				},
+				{
+					"name": "editClub",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n    \"_ApplicationId\":  \"{{appId}}\",\r\n\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\"clubId\": \"{{clubId}}\",\r\n\t\"name\": \"Minas Tênis Clube\",\r\n\t\"modalitys\": [],\r\n\t\"url\": \"https://www.minastenisclube.com.br\",\r\n\t\"adress\": \"Rua da Bahia, 2.244, Lourdes Belo Horizonte - MG - 30160-012\",\r\n\t\"phone\": \"31 3516-1000\",\r\n\t\"ranking\": 8,\r\n\t\"latitude\": -19.9312082,\r\n\t\"longitude\": -43.941386,\r\n\t\"logo\": \"https://cdn.desapega.net/thumbs/cota-do-minas-tenis-clube_640x480_25_1a1c7636b5e4e935de186e33bf453e085cf03a61ac4600ff20910a2533863e.jpg\"\r\n\t\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{URL}}editClub",
+							"host": [
+								"{{URL}}editClub"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteClub",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n    \"_ApplicationId\":  \"{{appId}}\",\r\n\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\"clubId\": \"{{clubId}}\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{URL}}deleteClub",
+							"host": [
+								"{{URL}}deleteClub"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Modality",
+			"item": [
+				{
+					"name": "createModality",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n    \"_ApplicationId\":  \"{{appId}}\",\r\n\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\"name\": \"Tênis\",\r\n\t\"code\": \"TEN\",\r\n\t\"description\": \"Voleibol (chamado frequentemente no Brasil de Vôlei e em Portugal de Vólei) é um desporto praticado numa quadra dividida em duas partes por uma rede, possuindo duas equipes de seis jogadores em cada lado. O objetivo da modalidade é fazer passar a bola sobre a rede de modo a que a bola toque no chão dentro da quadra adversária, ao mesmo tempo que se evita que os adversários consigam fazer o mesmo. O voleibol é um desporto olímpico, regulado pela Fédération Internationale de Volleyball (FIVB).\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}createModality",
+							"host": [
+								"{{URL}}createModality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ediModality",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\n    \"_ApplicationId\":  \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\",\n\t\"modalityId\": \"vFhZHHyNfC\",\n\t\"name\": \"Vôleibol\",\n\t\"code\": \"VOLEI\",\n\t\"description\": \"Voleibol (chamado frequentemente no Brasil de Vôlei e em Portugal de Vólei) é um desporto praticado numa quadra dividida em duas partes por uma rede, possuindo duas equipes de seis jogadores em cada lado. O objetivo da modalidade é fazer passar a bola sobre a rede de modo a que a bola toque no chão dentro da quadra adversária, ao mesmo tempo que se evita que os adversários consigam fazer o mesmo. O voleibol é um desporto olímpico, regulado pela Fédération Internationale de Volleyball (FIVB).\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}editModality",
+							"host": [
+								"{{URL}}editModality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteModality",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n    \"_ApplicationId\":  \"{{appId}}\",\r\n\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\"modalityId\": \"D0OwMm9esn\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}deleteModality",
+							"host": [
+								"{{URL}}deleteModality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getModalitys",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_ApplicationId\":  \"{{appId}}\",\n\t\"_SessionToken\": \"{{sessionToken}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getModalitys",
+							"host": [
+								"{{URL}}getModalitys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getModalityById",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n    \"_ApplicationId\":  \"{{appId}}\",\r\n\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\"modalityId\": \"ubkuweIoiU\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getModalityById",
+							"host": [
+								"{{URL}}getModalityById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getModalityByCode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n    \"_ApplicationId\":  \"{{appId}}\",\r\n\t\"_SessionToken\": \"{{sessionToken}}\",\r\n\t\"code\":  \"FUTSAL\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}getModalityByCode",
+							"host": [
+								"{{URL}}getModalityByCode"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Modalidade de esportes "
+		}
+	]
+}
